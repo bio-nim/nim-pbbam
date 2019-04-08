@@ -1,12 +1,13 @@
 # Package
 
 version       = "0.24.0"
+backend       = "cpp"
 author        = "Christopher Dunn"
 description   = "Nim wrappers for PB C++ code, starting with pbbam"
 license       = "BSD-3-Clause"
 srcDir        = "src"
 installDirs   = @["."]
-bin           = @["pb-dataset"]
+bin           = @["pbdataset"]
 
 # Dependencies
 

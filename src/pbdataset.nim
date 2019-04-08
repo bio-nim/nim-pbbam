@@ -1,5 +1,5 @@
 import cligen
-import pbbam
+import pbbam/pbbam
 
 proc absolutize(positional: seq[string], outdir: string = "", update: bool = false): int =
   echo "absolutely!"

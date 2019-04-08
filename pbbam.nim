@@ -1,9 +1,9 @@
 {.passC: "-std=c++11".}
-#{.passC: gorge("pkg-config --cflags pbbam").}
-{.passC: "-I../include/ -isystem/mnt/software/h/htslib/1.9/include -I/mnt/software/z/zlib/1.2.11/include".}
+{.passC: gorge("pkg-config --cflags pbbam").}
+#{.passC: "-I../include/ -isystem/mnt/software/h/htslib/1.9/include -I/mnt/software/z/zlib/1.2.11/include".}
 #{.passL: "-L/Users/cdunn2001/repo/gh/pbbam/.git/PREFIX/lib -L/usr/local/Cellar/htslib/1.9/lib -lpbbam -lhts".}
-#{.passL: gorge("pkg-config --libs pbbam").}
-{.passL: "/mnt/software/h/htslib/1.9/lib/libhts.so /mnt/software/z/zlib/1.2.11/lib/libz.so -L/localdisk/scratch/cdunn/repo/pbbam/build/src -lpbbam".}
+{.passL: gorge("pkg-config --libs pbbam").}
+#{.passL: "/mnt/software/h/htslib/1.9/lib/libhts.so /mnt/software/z/zlib/1.2.11/lib/libz.so -L/localdisk/scratch/cdunn/repo/pbbam/build/src -lpbbam".}
 #{.emit: """
 ##include <string>
 ##include <vector>

@@ -18,3 +18,8 @@ requires "cligen"
 
 task hello, "This is a hello task":
   echo("Hello World!")
+
+task integ, "Run integration tests":
+  let cmd = "nim cpp -r tests/integ_pbbam.nim"
+  echo cmd
+  exec cmd

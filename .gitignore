@@ -1,4 +1,6 @@
 /ds2.xml
 /*.exe
-/dataset
 /*.bam
+/pbdataset
+/tests/t_pbbam
+/tests/integ_pbbam

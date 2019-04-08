@@ -1,24 +1,26 @@
 #EXTRA+=--d:nativeStacktrace
-EXTRA+=--debugger:native
+#EXTRA+=--debugger:native
 #EXTRA+=--define:bam=foo
-EXTRA+=--verbosity:2
+#EXTRA+=--verbosity:2
 
-test: dataset.exe
-	./dataset.exe absolutize --help
-	./dataset.exe filter --help
-	#./dataset.exe absolutize
-	#./dataset.exe filter
-test-nimble:
-	nimble testabs --debug
-	nimble testfilt --debug
+run:
+	./pbdataset -h
+	./pbdataset absolutize --help
+	./pbdataset filter --help
 build:
 	nimble build --debug
+integ:
+	nim cpp -r tests/integ_pbbam.nim
+test:
+	#nimble test --debug # https://github.com/nim-lang/nimble/issues/631
+	nim cpp tests/t_pbbam.nim
+	${MAKE} retest
+retest:
+	./tests/t_pbbam
 dataset.exe: dataset.nim pbbam.nim
-	nim cpp ${EXTRA} -o:dataset.exe dataset.nim
-go:
-	#nim cpp --cc:gcc -r pbbam.nim
-	rm -f pbbam.exe
-	nim cpp ${EXTRA} -o:pbbam.exe pbbam.nim
-	./pbbam.exe
+	nim cpp -o:dataset.exe dataset.nim
 clean:
-	git clean -xf .
+	rm -f pbdataset
+distclean:
+	git clean -xdf .
+.PHONY: tests

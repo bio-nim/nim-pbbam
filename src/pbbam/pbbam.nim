@@ -37,14 +37,14 @@ proc what*(this: StdCppImportedException): cstring {.importcpp: "const_cast<char
 proc constructStdString*(s: cstring): std_string {.importcpp: "std::string(@)", constructor, header: "<string>".}
 proc c_str*(this: std_string): cstring {.importcpp: "const_cast<char*>(#.c_str())", header: "<string>".} # Remember to call "$s.c_str" immediately.
 
-proc constructBamReader(fn: std_string): BamReader {.importcpp: "PacBio::BAM::BamReader(@)", constructor}
+proc constructBamReader*(fn: std_string): BamReader {.importcpp: "PacBio::BAM::BamReader(@)", constructor}
 proc Filename*(this: BamReader): std_string {.importcpp: "#.Filename()".}
 proc Header*(this: BamReader): BamHeader {.importcpp: "#.Header()".}
 
-proc constructBamWriter(fn: std_string, h: BamHeader): BamWriter {.importcpp: "PacBio::BAM::BamWriter(@)", constructor}
+proc constructBamWriter*(fn: std_string, h: BamHeader): BamWriter {.importcpp: "PacBio::BAM::BamWriter(@)", constructor}
 
-#proc constructBamHeader(fn: std_string): BamHeader {.importcpp: "PacBio::BAM::BamHeader(@)", constructor}
+#proc constructBamHeader*(fn: std_string): BamHeader {.importcpp: "PacBio::BAM::BamHeader(@)", constructor}
 
-proc constructDataSet(): DataSet {.importcpp: "PacBio::BAM::DataSet()", constructor}
-proc constructDataSet(fn: std_string): DataSet {.importcpp: "PacBio::BAM::DataSet(@)", constructor}
+proc constructDataSet*(): DataSet {.importcpp: "PacBio::BAM::DataSet()", constructor}
+proc constructDataSet*(fn: std_string): DataSet {.importcpp: "PacBio::BAM::DataSet(@)", constructor}
 proc Save*(this: DataSet, fn: std_string) {.importcpp: "#.Save(@)".}

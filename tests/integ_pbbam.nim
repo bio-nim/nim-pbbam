@@ -1,4 +1,10 @@
 # vim: sw=4 ts=4 sts=4 tw=0 et:
+from os import nil
+import pbbam/pbbam
+const bam {.strdefine.} = os.parentDir(system.currentSourcePath()) & "/data/long_reads.bam"
+
+#type StdException* {.importcpp: "std::exception", header: "<exception>".} = object
+#proc what* (ex: StdException): cstring {.importcpp: "((char *)#.what())".}
 
 proc main =
     echo "hi"
@@ -32,6 +38,7 @@ except Exception as ex:
 except StdCppImportedException as ex:
     echo "trapped cpp"
     echo "ex:", ex.what()
+    raise
 except:
     echo "trapped"
 

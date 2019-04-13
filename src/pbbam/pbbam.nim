@@ -32,7 +32,7 @@ type
   BamHeader {.header: "pbbam/BamHeader.h", importcpp: "PacBio::BAM::BamHeader".} = object
   DataSet {.header: "pbbam/DataSet.h", importcpp: "PacBio::BAM::DataSet".} = object
 
-proc what*(this: StdCppImportedException): cstring {.importcpp: "#.what()".}
+proc what*(this: StdCppImportedException): cstring {.importcpp: "const_cast<char*>(#.what())".}
 
 proc constructStdString*(s: cstring): std_string {.importcpp: "std::string(@)", constructor, header: "<string>".}
 proc c_str*(this: std_string): cstring {.importcpp: "const_cast<char*>(#.c_str())", header: "<string>".} # Remember to call "$s.c_str" immediately.

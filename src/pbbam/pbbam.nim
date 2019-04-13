@@ -1,5 +1,5 @@
 # vim: sw=4 ts=4 sts=4 tw=0 et:
-{.passC: "-std=c++11".}
+{.passC: "-std=c++14".}
 {.passC: gorge("pkg-config --cflags pbbam").}
 #{.passC: "-I../include/ -isystem/mnt/software/h/htslib/1.9/include -I/mnt/software/z/zlib/1.2.11/include".}
 #{.passL: "-L/Users/cdunn2001/repo/gh/pbbam/.git/PREFIX/lib -L/usr/local/Cellar/htslib/1.9/lib -lpbbam -lhts".}
